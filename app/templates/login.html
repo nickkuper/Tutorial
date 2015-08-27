@@ -1,0 +1,28 @@
+<!--extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Sign In</h1>
+<form action="" method = "post" name = "login">
+	{{form.hidden_tag()}}
+	<p>
+		enter email:<br>
+		{{form.email(size = 20)}}<br>
+		{% for error in form.errors.email %}
+		<span style = "color: red;">[{{error}}]</span>
+		{% endfor %}<br>
+	</p>
+	<p>
+		enter password:<br>
+		{{form.password}}<br>
+		{% for error in form.errors.password %}
+		<span style = "color: red;">[{{error}}]</span>
+		{% endfor %}<br>
+	</p>
+	<p>
+		{{form.remember_me}} remember me
+	</p>
+	<p><input type = "submit" value = "Sign In"></p>
+	<p><a href="/registration">or sign up</a></p>
+</form>
+{% endblock %}
